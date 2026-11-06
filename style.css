@@ -1,0 +1,131 @@
+/*
+  Colors and type come from The Last Foundry itself:
+  felt background, steel blades, parchment text, rare-item gold, and the Steam library logo.
+  Sorts Mill Goudy (SIL Open Font License, see fonts/) stands in for the game's Goudy Old Style.
+  Everything is self-hosted: the site makes no third-party requests.
+*/
+@font-face {
+  font-family: "Goudy";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/sorts-mill-goudy-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Goudy";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/sorts-mill-goudy-latin-400-italic.woff2") format("woff2");
+}
+
+:root {
+  --felt: #171717;
+  --steel: #a3a6cc;
+  --parchment: #e6e0d1;
+  --gold: #f2c759;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--felt) url("img/felt.webp") repeat;
+  color: var(--parchment);
+  font-family: "Goudy", "Goudy Old Style", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.6;
+  font-synthesis: none;
+}
+
+a { color: var(--parchment); text-decoration-color: var(--gold); text-underline-offset: 4px; }
+a:hover { color: var(--gold); }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2 { font-weight: 400; margin: 0; }
+
+/* ---- Home ---- */
+/* The logo is already a framed plaque, so it sits straight on the felt with nothing around it. */
+.home main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px 16px;
+}
+
+.home h1 { width: 100%; max-width: 640px; }
+.home h1 img { width: 100%; height: auto; display: block; }
+
+.home main p { margin: 24px 0 8px; max-width: 34ch; font-size: 22px; }
+
+/* The anvil from the main capsule: the button sits right where the blade is being forged. */
+.anvil { width: 100%; max-width: 440px; height: auto; display: block; margin-bottom: -24px; }
+
+.steam {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px 12px 18px;
+  background: var(--gold);
+  color: var(--felt);
+  border-radius: 4px;
+  text-decoration: none;
+}
+.steam svg { flex: none; }
+.steam:hover { background: var(--parchment); color: var(--felt); }
+
+
+/* ---- Policy ---- */
+/* Long reading: the felt is dimmed so it never competes with the text. */
+body:not(.home) {
+  background: linear-gradient(rgba(23, 23, 23, 0.6), rgba(23, 23, 23, 0.6)), var(--felt) url("img/felt.webp") repeat;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 0;
+  align-items: center;
+  font-size: 18px;
+}
+.top img { display: block; width: 120px; height: auto; }
+
+.policy {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px 72px;
+}
+.policy h1 { font-size: 44px; line-height: 1.15; }
+.policy .updated { color: var(--steel); font-style: italic; margin: 4px 0 32px; }
+.policy h2 { font-size: 27px; color: var(--gold); margin: 40px 0 8px; }
+.policy ul { padding-left: 24px; }
+.policy li { margin: 8px 0; }
+.policy li::marker { color: var(--steel); }
+
+/* ---- Footer ---- */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  padding: 24px 16px 32px;
+  color: var(--steel);
+  font-size: 17px;
+}
+footer a { color: var(--steel); }
+footer small { flex-basis: 100%; text-align: center; font-size: 14px; opacity: 0.75; }
